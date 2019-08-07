@@ -1,0 +1,20 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      <a href="https://ionicframework.com/docs/api/select#objects-as-values">Ejemplo 3 ion-select</a>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-list-header> Objects as Values (compareWith)</ion-list-header>
+  
+    <ion-item>
+      <ion-label>Users</ion-label>
+      <ion-select [compareWith]="compareWith">
+        <ion-select-option *ngFor="let user of users">{{user.first + ' ' + user.last}}</ion-select-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>
+</ion-content>

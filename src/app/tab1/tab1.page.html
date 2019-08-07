@@ -1,0 +1,49 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Select Ivan
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card class="welcome-card">
+    <img width="100px" src="/assets/shapes.svg" alt="" />
+    <ion-card-header>
+      <ion-card-subtitle>Get Started</ion-card-subtitle>
+      <ion-card-title>Welcome to Ionic</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p>Now that your app has been created, you'll want to start building out features and components. Check out some
+        of the resources below for next steps.</p>
+    </ion-card-content>
+  </ion-card>
+
+
+  <div class="efecto" *ngIf="div_seis">
+    <div>
+      <p style="font-size: 15px;text-align: center"><b>Características del elemento de la carga*</b></p>
+      <div no-padding>
+        <ion-list>
+          <!-- <ion-item *ngFor="let question of datos_orden?.elements[0]?.answers;let i = index"> -->
+          <ion-item *ngFor="let question of datos_orden;let i = index">
+            {{i}}
+            <p style="font-size: 15px;">{{ question.title }}</p>
+            <ion-label position="stacked">{{ question.description }}</ion-label>
+            <ion-select [(ngModel)]="question.answer" *ngIf="question.options.length > 0"
+              placeholder=".: SELECCIONE :.">
+              <ion-select-option *ngFor="let option of question.options" [value]="option">{{option}}
+              </ion-select-option>
+            </ion-select>
+            <ion-textarea [(ngModel)]="question.answer" *ngIf="question.options.length === 0" rows="4"
+              placeholder="Ingrese más información aquí...">
+            </ion-textarea>
+          </ion-item>
+        </ion-list>
+        <div class="ion-padding" (click)="agregar_elemento()">
+          <ion-button expand="full" color="favorite">+ Añadir elemento</ion-button>
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>
